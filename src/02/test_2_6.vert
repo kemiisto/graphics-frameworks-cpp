@@ -1,0 +1,9 @@
+#version 330 core
+
+in vec3 position;
+uniform vec3 translation;
+
+void main() {
+	vec3 pos = position + translation;
+	gl_Position = vec4(pos, 1.0);
+}
