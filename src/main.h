@@ -6,7 +6,7 @@ int main()                                       \
 {                                                \
     try {                                        \
         tinygl::init(3, 3);                      \
-        Window window(1024, 1024, NAME);         \
+        Window window(1024, 1024, NAME, true);   \
         window.run();                            \
     } catch (const std::exception& e) {          \
         tinygl::terminate();                     \
