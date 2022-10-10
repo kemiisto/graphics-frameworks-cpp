@@ -15,8 +15,8 @@ private:
 
 void Window::init()
 {
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_2_2.vert");
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_2_2.frag");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_02_02.vert");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_02_02.frag");
     program.link();
 
     vao.bind();

@@ -19,8 +19,8 @@ private:
 
 void Window::init()
 {
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_2_6.vert");
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_2_6.frag");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_02_06.vert");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_02_06.frag");
     program.link();
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -44,8 +44,10 @@ void Window::init()
 }
 
 void Window::draw() {
-    translation.x = 0.75f * std::cos(tinygl::getTime());
-    translation.y = 0.75f * std::sin(tinygl::getTime());
+    translation.x += 0.01f;
+    if (translation.x > 1.2f) {
+        translation.x = -1.2f;
+    }
 
     glClear(GL_COLOR_BUFFER_BIT);
 

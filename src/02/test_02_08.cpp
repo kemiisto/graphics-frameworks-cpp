@@ -14,13 +14,16 @@ private:
     tinygl::VertexArrayObject vao;
     int translationLocation{-1};
     int baseColorLocation{-1};
+    glm::vec3 translation{-0.5f, 0.0f, 0.0f};
 };
 
 void Window::init()
 {
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_2_6.vert");
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_2_6.frag");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_02_06.vert");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_02_06.frag");
     program.link();
+
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
     vao.bind();
 
@@ -41,17 +44,15 @@ void Window::init()
 }
 
 void Window::draw() {
+    translation.x = 0.75f * std::cos(tinygl::getTime());
+    translation.y = 0.75f * std::sin(tinygl::getTime());
+
+    glClear(GL_COLOR_BUFFER_BIT);
+
     program.use();
     vao.bind();
-
-    // draw the first triangle
-    program.setUniformValue(translationLocation, {-0.5f, 0.0f, 0.0f});
+    program.setUniformValue(translationLocation, translation);
     program.setUniformValue(baseColorLocation, {1.0f, 0.0f, 0.0f});
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-
-    // draw the second triangle
-    program.setUniformValue(translationLocation, {0.5f, 0.0f, 0.0f});
-    program.setUniformValue(baseColorLocation, {0.0f, 0.0f, 1.0f});
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 

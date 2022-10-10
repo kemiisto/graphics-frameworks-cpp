@@ -16,8 +16,8 @@ private:
 
 void Window::init()
 {
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_2_3.vert");
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_2_3.frag");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_02_03.vert");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_02_03.frag");
     program.link();
 
     glLineWidth(4.0f);

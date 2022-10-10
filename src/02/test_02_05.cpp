@@ -17,8 +17,8 @@ private:
 
 void Window::init()
 {
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_2_5.vert");
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_2_5.frag");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_02_05.vert");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_02_05.frag");
     program.link();
 
     glPointSize(10.0f);

@@ -21,8 +21,8 @@ private:
 
 void Window::init()
 {
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_2_6.vert");
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_2_6.frag");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_02_06.vert");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_02_06.frag");
     program.link();
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

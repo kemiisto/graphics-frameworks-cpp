@@ -15,12 +15,13 @@ private:
     int translationLocation{-1};
     int baseColorLocation{-1};
     glm::vec3 translation{-0.5f, 0.0f, 0.0f};
+    glm::vec3 baseColor{1.0f, 0.0f, 0.0f};
 };
 
 void Window::init()
 {
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_2_6.vert");
-    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_2_6.frag");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Vertex, "test_02_06.vert");
+    program.addShaderFromSourceFile(tinygl::Shader::Type::Fragment, "test_02_06.frag");
     program.link();
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -44,17 +45,14 @@ void Window::init()
 }
 
 void Window::draw() {
-    translation.x += 0.01f;
-    if (translation.x > 1.2f) {
-        translation.x = -1.2f;
-    }
+    baseColor.r = (std::sin(3 * tinygl::getTime()) + 1.0f) / 2.0f;
 
     glClear(GL_COLOR_BUFFER_BIT);
 
     program.use();
     vao.bind();
     program.setUniformValue(translationLocation, translation);
-    program.setUniformValue(baseColorLocation, {1.0f, 0.0f, 0.0f});
+    program.setUniformValue(baseColorLocation, baseColor);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
