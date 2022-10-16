@@ -14,8 +14,8 @@ private:
     tinygl::VertexArrayObject vao;
     int translationLocation{-1};
     int baseColorLocation{-1};
-    glm::vec3 translation{-0.5f, 0.0f, 0.0f};
-    glm::vec3 baseColor{1.0f, 0.0f, 0.0f};
+    tinygl::Vec3 translation{-0.5f, 0.0f, 0.0f};
+    tinygl::Vec3 baseColor{1.0f, 0.0f, 0.0f};
 };
 
 void Window::init()
@@ -45,7 +45,7 @@ void Window::init()
 }
 
 void Window::draw() {
-    baseColor.r = (std::sin(3 * tinygl::getTime()) + 1.0f) / 2.0f;
+    baseColor.r() = (std::sin(3 * tinygl::getTime()) + 1.0f) / 2.0f;
 
     glClear(GL_COLOR_BUFFER_BIT);
 

@@ -14,7 +14,7 @@ private:
     tinygl::VertexArrayObject vao;
     int translationLocation{-1};
     int baseColorLocation{-1};
-    glm::vec3 translation{-0.5f, 0.0f, 0.0f};
+    tinygl::Vec3 translation{-0.5f, 0.0f, 0.0f};
 };
 
 void Window::init()
@@ -44,15 +44,15 @@ void Window::init()
 }
 
 void Window::draw() {
-    translation.x = 0.75f * std::cos(tinygl::getTime());
-    translation.y = 0.75f * std::sin(tinygl::getTime());
+    translation.x() = 0.75f * std::cos(tinygl::getTime());
+    translation.y() = 0.75f * std::sin(tinygl::getTime());
 
     glClear(GL_COLOR_BUFFER_BIT);
 
     program.use();
     vao.bind();
     program.setUniformValue(translationLocation, translation);
-    program.setUniformValue(baseColorLocation, {1.0f, 0.0f, 0.0f});
+    program.setUniformValue(baseColorLocation, tinygl::Vec3{1.0f, 0.0f, 0.0f});
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 

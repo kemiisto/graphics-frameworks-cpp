@@ -45,13 +45,13 @@ void Window::draw() {
     vao.bind();
 
     // draw the first triangle
-    program.setUniformValue(translationLocation, {-0.5f, 0.0f, 0.0f});
-    program.setUniformValue(baseColorLocation, {1.0f, 0.0f, 0.0f});
+    program.setUniformValue(translationLocation, tinygl::Vec3{-0.5f, 0.0f, 0.0f});
+    program.setUniformValue(baseColorLocation, tinygl::Vec3{1.0f, 0.0f, 0.0f});
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
     // draw the second triangle
-    program.setUniformValue(translationLocation, {0.5f, 0.0f, 0.0f});
-    program.setUniformValue(baseColorLocation, {0.0f, 0.0f, 1.0f});
+    program.setUniformValue(translationLocation, tinygl::Vec3{0.5f, 0.0f, 0.0f});
+    program.setUniformValue(baseColorLocation, tinygl::Vec3{0.0f, 0.0f, 1.0f});
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 

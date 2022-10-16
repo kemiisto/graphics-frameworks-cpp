@@ -15,7 +15,7 @@ private:
     tinygl::VertexArrayObject vao;
     int translationLocation{-1};
     int baseColorLocation{-1};
-    glm::vec3 translation{-0.5f, 0.0f, 0.0f};
+    tinygl::Vec3 translation{-0.5f, 0.0f, 0.0f};
     GLfloat speed = 0.5f;
 };
 
@@ -49,13 +49,13 @@ void Window::processInput()
 {
     auto distance = speed * deltaTime();
     if (getKey(tinygl::Key::Left) == tinygl::KeyState::Press)
-        translation.x -= distance;
+        translation.x() -= distance;
     if (getKey(tinygl::Key::Right) == tinygl::KeyState::Press)
-        translation.x += distance;
+        translation.x() += distance;
     if (getKey(tinygl::Key::Down) == tinygl::KeyState::Press)
-        translation.y -= distance;
+        translation.y() -= distance;
     if (getKey(tinygl::Key::Up) == tinygl::KeyState::Press)
-        translation.y += distance;
+        translation.y() += distance;
 }
 
 void Window::draw()
@@ -65,7 +65,7 @@ void Window::draw()
     program.use();
     vao.bind();
     program.setUniformValue(translationLocation, translation);
-    program.setUniformValue(baseColorLocation, {1.0f, 0.0f, 0.0f});
+    program.setUniformValue(baseColorLocation, tinygl::Vec3{1.0f, 0.0f, 0.0f});
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
