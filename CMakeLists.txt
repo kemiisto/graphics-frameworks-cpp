@@ -26,6 +26,7 @@ endif()
 
 set(CHAPTERS
     02
+    03
 )
 
 function(create_project_from_sources chapter demo)
