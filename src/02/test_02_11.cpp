@@ -35,7 +35,7 @@ void Window::init()
         -0.2f, -0.2f, 0.0f
     };
     vbo.bind();
-    vbo.fill(positionData, sizeof(positionData));
+    vbo.create(sizeof(positionData), positionData);
 
     auto attributeLocation = program.attributeLocation("position");
     vao.setAttributeArray(attributeLocation, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
@@ -48,13 +48,13 @@ void Window::init()
 void Window::processInput()
 {
     auto distance = speed * deltaTime();
-    if (getKey(tinygl::Key::Left) == tinygl::KeyState::Press)
+    if (getKey(tinygl::keyboard::Key::Left) == tinygl::keyboard::KeyState::Press)
         translation.x() -= distance;
-    if (getKey(tinygl::Key::Right) == tinygl::KeyState::Press)
+    if (getKey(tinygl::keyboard::Key::Right) == tinygl::keyboard::KeyState::Press)
         translation.x() += distance;
-    if (getKey(tinygl::Key::Down) == tinygl::KeyState::Press)
+    if (getKey(tinygl::keyboard::Key::Down) == tinygl::keyboard::KeyState::Press)
         translation.y() -= distance;
-    if (getKey(tinygl::Key::Up) == tinygl::KeyState::Press)
+    if (getKey(tinygl::keyboard::Key::Up) == tinygl::keyboard::KeyState::Press)
         translation.y() += distance;
 }
 

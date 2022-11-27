@@ -38,7 +38,7 @@ void Window::init()
         -0.1f, -0.2f, 0.0f
     };
     vbo.bind();
-    vbo.fill(positionData, sizeof(positionData));
+    vbo.create(sizeof(positionData), positionData);
 
     auto attributeLocation = program.attributeLocation("position");
     vao.setAttributeArray(attributeLocation, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
@@ -56,62 +56,62 @@ void Window::processInput()
     auto moveAmount = moveSpeed * deltaTime();
     auto turnAmount = turnSpeed * deltaTime();
 
-    if (getKey(tinygl::Key::W) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::W) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preTranslate(tinygl::Vec3{0.0f, moveAmount, 0.0f});
     }
 
-    if (getKey(tinygl::Key::S) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::S) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preTranslate(tinygl::Vec3{0.0f, -moveAmount, 0.0f});
     }
 
-    if (getKey(tinygl::Key::A) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::A) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preTranslate(tinygl::Vec3{-moveAmount, 0.0f, 0.0f});
     }
 
-    if (getKey(tinygl::Key::D) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::D) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preTranslate(tinygl::Vec3{moveAmount, 0.0f, 0.0f});
     }
 
-    if (getKey(tinygl::Key::Z) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::Z) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preTranslate(tinygl::Vec3{0.0f, 0.0f, moveAmount});
     }
 
-    if (getKey(tinygl::Key::X) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::X) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preTranslate(tinygl::Vec3{0.0f, 0.0f, -moveAmount});
     }
 
     // global rotation
-    if (getKey(tinygl::Key::Q) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::Q) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preRotate(turnAmount, tinygl::Vec3{0.0f, 0.0f, 1.0f});
     }
 
-    if (getKey(tinygl::Key::E) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::E) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.preRotate(-turnAmount, tinygl::Vec3{0.0f, 0.0f, 1.0f});
     }
 
     // local translation
-    if (getKey(tinygl::Key::I) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::I) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.postTranslate(tinygl::Vec3{0.0f, moveAmount, 0.0f});
     }
 
-    if (getKey(tinygl::Key::K) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::K) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.postTranslate(tinygl::Vec3{0.0f, -moveAmount, 0.0f});
     }
 
-    if (getKey(tinygl::Key::J) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::J) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.postTranslate(tinygl::Vec3{-moveAmount, 0.0f, 0.0f});
     }
 
-    if (getKey(tinygl::Key::L) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::L) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.postTranslate(tinygl::Vec3{moveAmount, 0.0f, 0.0f});
     }
 
     // local rotation
-    if (getKey(tinygl::Key::U) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::U) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.postRotate(turnAmount, tinygl::Vec3{0.0f, 0.0f, 1.0f});
     }
 
-    if (getKey(tinygl::Key::O) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::O) == tinygl::keyboard::KeyState::Press) {
         modelMatrix.postRotate(-turnAmount, tinygl::Vec3{0.0f, 0.0f, 1.0f});
     }
 }

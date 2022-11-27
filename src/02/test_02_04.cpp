@@ -33,7 +33,7 @@ void Window::init()
         -0.8f, 0.2f, 0.0f
     };
     vboTriangle.bind();
-    vboTriangle.fill(positionDataTriangle, sizeof(positionDataTriangle));
+    vboTriangle.create(sizeof(positionDataTriangle), positionDataTriangle);
 
     vaoTriangle.setAttributeArray(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
     vaoTriangle.enableAttributeArray(0);
@@ -48,7 +48,7 @@ void Window::init()
         0.2f, 0.8f, 0.0f
     };
     vboSquare.bind();
-    vboSquare.fill(positionDataSquare, sizeof(positionDataSquare));
+    vboSquare.create(sizeof(positionDataSquare), positionDataSquare);
 
     vaoSquare.setAttributeArray(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
     vaoSquare.enableAttributeArray(0);

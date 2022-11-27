@@ -14,11 +14,11 @@ public:
 void Window::init()
 {
     spdlog::info("[Window] Initializing...");
-    setKeyCallback([this](tinygl::Key key, int /*scancode*/, tinygl::KeyAction action, tinygl::Modifier /*mods*/) {
-        if (key == tinygl::Key::Space && action == tinygl::KeyAction::Press) {
+    setKeyCallback([this](tinygl::keyboard::Key key, int /*scancode*/, tinygl::input::Action action, tinygl::input::Modifier /*mods*/) {
+        if (key == tinygl::keyboard::Key::Space && action == tinygl::input::Action::Press) {
             spdlog::info("The 'space' key was just pressed down.");
         }
-        if (key == tinygl::Key::A && action == tinygl::KeyAction::Release) {
+        if (key == tinygl::keyboard::Key::A && action == tinygl::input::Action::Release) {
             spdlog::info("The 'A' key was just released.");
         }
     });
@@ -26,7 +26,7 @@ void Window::init()
 
 void Window::processInput()
 {
-    if (getKey(tinygl::Key::Right) == tinygl::KeyState::Press) {
+    if (getKey(tinygl::keyboard::Key::Right) == tinygl::keyboard::KeyState::Press) {
         spdlog::info("The 'right arrow' key is currently pressed.");
     }
 }

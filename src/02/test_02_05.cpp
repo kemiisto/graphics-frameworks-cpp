@@ -35,7 +35,7 @@ void Window::init()
          0.4f, -0.6f, 0.0f
     };
     vboPosition.bind();
-    vboPosition.fill(positionData, sizeof(positionData));
+    vboPosition.create(sizeof(positionData), positionData);
 
     auto attributeLocation = program.attributeLocation("position");
     vao.setAttributeArray(attributeLocation, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
@@ -50,7 +50,7 @@ void Window::init()
         0.5f, 0.0f, 1.0f
     };
     vboColor.bind();
-    vboColor.fill(colorData, sizeof(colorData));
+    vboColor.create(sizeof(colorData), colorData);
 
     attributeLocation = program.attributeLocation("vertexColor");
     vao.setAttributeArray(attributeLocation, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);

@@ -33,7 +33,7 @@ void Window::init()
          0.4f, -0.6f, 0.0f
     };
     vbo.bind();
-    vbo.fill(positionData, sizeof(positionData));
+    vbo.create(sizeof(positionData), positionData);
 
     vao.setAttributeArray(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
     vao.enableAttributeArray(0);

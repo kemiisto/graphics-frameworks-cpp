@@ -30,7 +30,7 @@ void Window::init()
         -0.2f, -0.2f, 0.0f
     };
     vbo.bind();
-    vbo.fill(positionData, sizeof(positionData));
+    vbo.create(sizeof(positionData), positionData);
 
     auto attributeLocation = program.attributeLocation("position");
     vao.setAttributeArray(attributeLocation, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
