@@ -1,27 +1,24 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.2)
 
 project(graphics-frameworks-cpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
-if (MSVC)
-    add_compile_options(/W3 /WX)
-else()
-    add_compile_options(-Wall -Wextra -pedantic -Werror)
-endif()
-
 find_package(glfw3 CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
-find_package(glm CONFIG REQUIRED)
 
 add_subdirectory(tinygl)
-include_directories(src tinygl/include)
+include_directories(src tinygl/include tinygl/imgui)
 link_libraries(fmt::fmt spdlog::spdlog tinygl)
-if (TARGET glm::glm)
-    link_libraries(glm::glm)
-else()
-    link_libraries(glm)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    add_compile_options(-Wall -Wextra -pedantic -Werror)
+    add_compile_options(-Wno-gnu-anonymous-struct -Wno-nested-anon-types)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    add_compile_options(-Wall -Wextra -pedantic -Werror)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    add_compile_options(/W3 /WX)
 endif()
 
 set(CHAPTERS
