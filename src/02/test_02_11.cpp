@@ -49,13 +49,13 @@ void Window::processInput()
 {
     auto distance = speed * deltaTime();
     if (getKey(tinygl::keyboard::Key::Left) == tinygl::keyboard::KeyState::Press)
-        translation.x -= distance;
+        translation.x() -= distance;
     if (getKey(tinygl::keyboard::Key::Right) == tinygl::keyboard::KeyState::Press)
-        translation.x += distance;
+        translation.x() += distance;
     if (getKey(tinygl::keyboard::Key::Down) == tinygl::keyboard::KeyState::Press)
-        translation.y -= distance;
+        translation.y() -= distance;
     if (getKey(tinygl::keyboard::Key::Up) == tinygl::keyboard::KeyState::Press)
-        translation.y += distance;
+        translation.y() += distance;
 }
 
 void Window::draw()

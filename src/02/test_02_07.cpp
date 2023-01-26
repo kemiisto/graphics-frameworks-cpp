@@ -44,9 +44,9 @@ void Window::init()
 }
 
 void Window::draw() {
-    translation.x += 0.01f;
-    if (translation.x > 1.2f) {
-        translation.x = -1.2f;
+    translation.x() += 0.01f;
+    if (translation.x() > 1.2f) {
+        translation.x() = -1.2f;
     }
 
     glClear(GL_COLOR_BUFFER_BIT);

@@ -45,7 +45,7 @@ void Window::init()
 }
 
 void Window::draw() {
-    baseColor.r = (std::sin(3 * tinygl::getTime<float>()) + 1.0f) / 2.0f;
+    baseColor.r() = (std::sin(3 * tinygl::getTime<float>()) + 1.0f) / 2.0f;
 
     glClear(GL_COLOR_BUFFER_BIT);
 

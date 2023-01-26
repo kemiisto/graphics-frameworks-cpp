@@ -44,8 +44,8 @@ void Window::init()
 }
 
 void Window::draw() {
-    translation.x = 0.75f * std::cos(tinygl::getTime<float>());
-    translation.y = 0.75f * std::sin(tinygl::getTime<float>());
+    translation.x() = 0.75f * std::cos(tinygl::getTime<float>());
+    translation.y() = 0.75f * std::sin(tinygl::getTime<float>());
 
     glClear(GL_COLOR_BUFFER_BIT);
 
